@@ -132,7 +132,7 @@ function mostrarAviso(mensagem) {
   temporizador = setTimeout(() => { aviso.hidden = true; }, 4900);
 }
 
-const marca = () => '<div class="marca"><img class="marca-simbolo" src="/icone-192.png" alt=""> Finanças em Dia</div>';
+const marca = () => '<div class="marca"><img class="marca-simbolo" src="./icone-192.png" alt=""> Finanças em Dia</div>';
 const icone = nome => `<span class="icone" aria-hidden="true">${nome}</span>`;
 const comIcone = (nome, conteudo) => nome ? `<span class="com-icone">${icone(nome)}<span>${conteudo}</span></span>` : conteudo;
 const vazio = mensagem => `<p class="vazio">${h(mensagem)}</p>`;
@@ -352,7 +352,7 @@ function confirmarExclusao(titulo, mensagem, caminho, dados, sucesso) {
 
 function abrirTutorial() {
   abrir('Tutorial', `<div class="tutorial">
-    <img class="tutorial-capa" src="/tutorial-financas.jpg" width="900" height="300" alt="">
+    <img class="tutorial-capa" src="./tutorial-financas.jpg" width="900" height="300" alt="">
     <section>
       <h3>Dica para manter o saldo atualizado</h3>
       <p>Faça pagamentos e transferências pelo aplicativo do seu banco. Assim que a operação for concluída ou um valor cair na sua conta, registre a movimentação aqui no site.</p>
@@ -494,7 +494,7 @@ function exibirPerfis() {
           </div>
         </section>
         <section class="inicio-acesso" aria-labelledby="titulo-acesso">
-          <img class="inicio-acesso-ilustracao" src="/ilustracao-financeira-realista.png" width="144" height="96" alt="">
+          <img class="inicio-acesso-ilustracao" src="./ilustracao-financeira-realista.png" width="144" height="96" alt="">
           <h2 id="titulo-acesso">Seu espaço para organizar as finanças</h2>
           <p>Entre no seu perfil para continuar de onde parou.</p>
           ${botao('Entrar com usuário e senha', 'entrar-login', '', 'principal')}
@@ -1770,7 +1770,7 @@ async function carregar() {
     ]);
     if (passagem !== navegacao) return;
     if (pagina === 'notificacoes' && resultados[2].ativa && navegadorComPush()) {
-      const registro = await navigator.serviceWorker.register('/sw.js');
+      const registro = await navigator.serviceWorker.register('./sw.js');
       registroPush = registro.active ? registro : await navigator.serviceWorker.ready;
       const inscricao = await registroPush.pushManager.getSubscription();
       resultados[2].inscrito = inscricao

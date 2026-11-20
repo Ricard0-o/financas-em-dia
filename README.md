@@ -4,7 +4,7 @@ Aplicação web de Ricardo Nelber para organizar contas, movimentações, cartõ
 compromissos e relatórios financeiros pessoais e familiares.
 Interface em HTML/CSS/JavaScript e servidor Node.js com banco SQLite local.
 
-**[Abrir demonstração](https://financas-em-dia-ricardo-demo.rick00-oo.chatgpt.site)** ·
+**[Abrir demonstração](https://ricard0-o.github.io/financas-em-dia/)** ·
 **[Portfólio do autor](https://ricard0-o.github.io/ricardonelberdev/)**
 
 ## Demonstração
@@ -129,3 +129,9 @@ Ricardo Nelber — [GitHub](https://github.com/Ricard0-o).
 Código autoral com direitos reservados; consulte [LICENSE](LICENSE) e
 [componentes de terceiros](THIRD_PARTY_NOTICES.md).
 Veja [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) e [CHANGELOG.md](CHANGELOG.md).
+
+## Publicação da demonstração
+
+A demonstração é hospedada no GitHub Pages pelo workflow `.github/workflows/pages.yml`.
+Somente a pasta `demo/` é publicada; código de servidor, banco e configurações não são servidos.
+Para atualizar, regenere a demonstração, revise os arquivos e envie o commit para `main`.

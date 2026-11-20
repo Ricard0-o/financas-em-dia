@@ -54,10 +54,15 @@ try {
   for(const item of fixtures['/api/cartoes'].faturas??[]) fixtures['/api/faturas/'+item.id]=await api('/faturas/'+item.id);
   mkdirSync(output,{recursive:true});
   cpSync(join(root,'publico'),output,{recursive:true});
+  // Caminhos relativos permitem publicar em /financas-em-dia/ no GitHub Pages.
+  for (const filename of ['index.html','app.js','bancos.mjs','estilo.css']) {
+    const file=join(output,filename);
+    writeFileSync(file,readFileSync(file,'utf8').replace(/(["'])\/(?!api\/|\/)([^"'\s]+\.(?:png|jpg|svg|woff2|css|js|mjs))\1/g,'$1./$2$1'));
+  }
   // Demos não publicam o service worker nem solicitam permissões ou dados pessoais.
   for(const filename of ['sw.js','manifesto.json']) rmSync(join(output,filename),{force:true});
   let html=readFileSync(join(output,'index.html'),'utf8').replace('<title>Finanças em Dia</title>','<title>Demonstração · Finanças em Dia</title>').replace(/\s*<link rel="manifest"[^>]*>/,'');
-  html=html.replace('</head>','<script src="/demo-adapter.js"></script><link rel="stylesheet" href="/demo.css"></head>');
+  html=html.replace('</head>','<script src="./demo-adapter.js"></script><link rel="stylesheet" href="./demo.css"></head>');
   html=html.replace('<body>','<body><aside class="demo-banner"><strong>Demonstração com dados fictícios</strong><span> Navegação e consulta; alterações não são salvas.</span> <a href="https://github.com/Ricard0-o/financas-em-dia">Código e instalação</a></aside>');
   writeFileSync(join(output,'index.html'),html);
   writeFileSync(join(output,'demo-data.json'),JSON.stringify(fixtures));
@@ -65,7 +70,7 @@ try {
   writeFileSync(join(output,'demo-adapter.js'),`// Apenas fixtures fictícias; nenhum pedido /api sai do navegador.
 (() => {
 const nativeFetch=window.fetch.bind(window);
-const ready=nativeFetch('/demo-data.json').then(r=>{if(!r.ok)throw new Error('Dados demonstrativos indisponíveis');return r.json();});
+const ready=nativeFetch(new URL('./demo-data.json',document.baseURI)).then(r=>{if(!r.ok)throw new Error('Dados demonstrativos indisponíveis');return r.json();});
 let theme='claro';
 window.fetch=async (input,options={})=>{
   const url=new URL(typeof input==='string'?input:input.url,location.href);
@@ -73,7 +78,7 @@ window.fetch=async (input,options={})=>{
   const data=await ready;
   const response=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json'}});
   const method=options.method??'GET';
-  if(url.pathname==='/api/rede')return response({endereco:location.origin});
+  if(url.pathname==='/api/rede')return response({endereco:new URL('.',document.baseURI).href});
   if(url.pathname==='/api/tema'){theme=JSON.parse(options.body).tema;return response({tema:theme});}
   if(method!=='GET')return response({erro:'Demonstração somente para consulta. Instale o projeto para salvar alterações.'},403);
   if(url.pathname==='/api/sessao')return response({...data[url.pathname],tema:theme});

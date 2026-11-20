@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Material Symbols Outlined";
-  src: url("/material-symbols.woff2") format("woff2");
+  src: url("./material-symbols.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: block;
@@ -276,12 +276,12 @@ input, select { color: var(--texto); background: var(--cartao); border: 1px soli
 .tela-login { min-height: 100dvh; display: grid; place-items: center; padding: 1rem; }
 .tela-perfis {
   background-color: var(--fundo);
-  background-image: radial-gradient(ellipse at center, #f0f4f1ed 0%, #f0f4f1b8 45%, #f0f4f14d 100%), url("/tutorial-financas.jpg");
+  background-image: radial-gradient(ellipse at center, #f0f4f1ed 0%, #f0f4f1b8 45%, #f0f4f14d 100%), url("./tutorial-financas.jpg");
   background-position: center;
   background-size: cover;
 }
 [data-tema="escuro"] .tela-login.tela-perfis {
-  background-image: radial-gradient(ellipse at center, #0e1915f5 0%, #0e1915ed 45%, #0e1915e0 100%), url("/tutorial-financas.jpg");
+  background-image: radial-gradient(ellipse at center, #0e1915f5 0%, #0e1915ed 45%, #0e1915e0 100%), url("./tutorial-financas.jpg");
 }
 .login .marca { margin-bottom: .85rem; }
 .seletor-perfis { width: min(100%, 760px); padding: 2rem 0 3rem; display: grid; justify-items: center; gap: 1.85rem; text-align: center; }

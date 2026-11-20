@@ -1,7 +1,7 @@
 export const bancos = [
-  { id: 'nubank', nome: 'Nubank', icone: '/banco-nubank.png' },
-  { id: 'santander', nome: 'Santander', icone: '/banco-santander.png' },
-  { id: 'mercado-pago', nome: 'Mercado Pago', icone: '/banco-mercado-pago.png' },
+  { id: 'nubank', nome: 'Nubank', icone: './banco-nubank.png' },
+  { id: 'santander', nome: 'Santander', icone: './banco-santander.png' },
+  { id: 'mercado-pago', nome: 'Mercado Pago', icone: './banco-mercado-pago.png' },
   { id: 'outro', nome: 'Outro' }
 ];
 
