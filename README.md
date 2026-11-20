@@ -115,6 +115,14 @@ o arquivo `dados/financas.sqlite`. A saída navegável fica em `demo/`.
 Os testes também verificam separação de perfis, consentimento, autenticação,
 CSRF, parcelamento e conciliação. Não substituem uma auditoria completa de segurança.
 
+## Resultado da validação da publicação
+
+Na validação de **20/11/2026**, os **47 testes automatizados existentes passaram**,
+usando bancos temporários separados dos dados de uso. As verificações da publicação
+também passaram no [GitHub Actions](https://github.com/Ricard0-o/financas-em-dia/actions/workflows/ci.yml).
+Esse resultado registra a versão testada naquela data; não garante ausência de erros
+nem representa uma auditoria completa de segurança ou de todos os ambientes de execução.
+
 ## Cuidados de operação
 
 - Preserve `dados/` fora do repositório e faça backups consistentes do SQLite, considerando WAL.
