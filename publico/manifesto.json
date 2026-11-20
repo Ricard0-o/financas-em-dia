@@ -1,0 +1,14 @@
+{
+  "id": "/",
+  "name": "Finanças em Dia",
+  "short_name": "Finanças em Dia",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f4f1",
+  "theme_color": "#145238",
+  "icons": [
+    {"src": "/icone-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any"},
+    {"src": "/icone-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any"}
+  ]
+}

@@ -1,0 +1,14 @@
+/dados/
+/node_modules/
+/configuracao-local.json
+/.env
+/.env.*
+!/.env.example
+/.publico-grupos/
+/.backup-grupos.json
+*.sqlite*
+*.pem
+*.key
+*.crt
+*.log
+/coverage/
